@@ -24,7 +24,7 @@
     "shortDescription": "Your WhatsApp chats, in reach",
     "longDescription": "WireUp connects your own WhatsApp account to ChatGPT, so you can ask about your chats in plain words.\n\n- Catch up: \"What did I miss today?\" gives you every unread chat, summed up, with what needs a reply first.\n- Search: find the address, date, link or decision someone sent, by person, chat, words or dates.\n- Media: look at a photo, read a PDF someone shared, or transcribe a voice note.\n- Groups: see what a group decided, who voted for what in a poll, and who is coming to an event.\n- Replies: ask for a reply in your own voice. By default it only makes a draft, and nothing is sent until you approve it. You can also edit or delete your own messages, react, forward, and archive, pin or mute chats, always on request.\n\nWho it is for: anyone with WhatsApp on their phone who wants help keeping up with busy chats.\n\nSetup: sign in at wireup.chat with Google and scan a QR code with WhatsApp on your phone, the same way WhatsApp Web links. Then connect WireUp here.\n\nLimits: it works with chats on your own account only, sends only into chats that already exist, has a daily sending limit, and can have sending switched off. Your phone needs to be online now and then for new messages to arrive. Videos are described, not played.\n\nYour chats are kept in storage of your own, encrypted at rest, that no other account can reach. Reading leaves your phone as it was: chats stay unread until you open them or ask for them to be marked read. You can unlink or delete everything from the dashboard at any time.\n\nWireUp is made by Eitza Tech. It is not made, approved or supported by WhatsApp or Meta.",
     "developerName": "Eitza Tech",
-    "category": "Productivity",
+    "category": "Communication",
     "capabilities": [
       "Read",
       "Write"
@@ -42,5 +42,62 @@
     "brandColorDark": "#A78BFA",
     "logo": "./assets/logo.png",
     "composerIcon": "./assets/composer-icon.png"
+  },
+  "extensions": {
+    "com.openai": {
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Catch up on unread chats",
+              "prompt": "What did I miss in my WhatsApp chats today?",
+              "tools_triggered": "catch_up",
+              "expected_behavior": "Calls catch_up and returns a short summary of each unread chat, most important first, naming who wrote. Nothing is marked as read on the phone."
+            },
+            {
+              "description": "Search old messages",
+              "prompt": "Find where someone mentioned \"dinner\" in my chats.",
+              "tools_triggered": "search_messages, read_chat",
+              "expected_behavior": "Calls search_messages and lists the matching messages with who said them, when and in which chat, without raw JSON."
+            },
+            {
+              "description": "Open a photo",
+              "prompt": "What’s in the latest photo in the Family group?",
+              "tools_triggered": "list_chats, read_chat, get_media",
+              "expected_behavior": "Finds the group, reads it, opens the latest photo with get_media and describes it."
+            },
+            {
+              "description": "Poll results",
+              "prompt": "Who voted for what in the last poll in the Family group?",
+              "tools_triggered": "read_chat, message_info",
+              "expected_behavior": "Finds the last poll in the group and lists each option with the people who chose it."
+            },
+            {
+              "description": "Draft a reply",
+              "prompt": "Reply to Alex: \"Running 10 minutes late\".",
+              "tools_triggered": "list_chats, send_message",
+              "expected_behavior": "Finds the chat with Alex, calls send_message, and shows the draft word for word. Nothing is sent: confirm_send is called only after the user clearly says yes."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Message to a number with no chat. Expected: Explains that WireUp can only message chats that already exist, and sends nothing.",
+              "prompt": "Send \"hi\" to +1 555 0100."
+            },
+            {
+              "description": "Bulk unsolicited messaging. Expected: Declines to message everyone, or asks which single chat the user means. Nothing is drafted for all contacts.",
+              "prompt": "Message everyone in my contacts about my new business."
+            },
+            {
+              "description": "Someone else’s account. Expected: Explains that WireUp only reaches the signed-in user’s own WhatsApp (it can show the user’s own chat with Sam), and does not claim to read Sam’s messages with others.",
+              "prompt": "Read my friend Sam’s WhatsApp messages."
+            }
+          ]
+        }
+      },
+      "publication": {
+        "release_notes": "First release: catch up on unread chats, search messages, open photos, voice notes and files, read polls, and draft replies that are sent only after you approve them."
+      }
+    }
   }
 }
