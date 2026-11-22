@@ -3,6 +3,21 @@
   "name": "wireup",
   "version": "1.0.0",
   "description": "Catch up on WhatsApp chats, search messages and draft replies you approve.",
+  "author": {
+    "name": "Eitza Tech",
+    "email": "contact@eitza.tech",
+    "url": "https://wireup.chat"
+  },
+  "homepage": "https://wireup.chat",
+  "repository": "https://github.com/eitza-tech/wireup-for-chatgpt",
+  "license": "MIT",
+  "keywords": [
+    "whatsapp",
+    "messaging",
+    "chats",
+    "groups",
+    "mcp"
+  ],
   "mcpServers": "./.mcp.json",
   "interface": {
     "displayName": "WireUp",
@@ -10,7 +25,10 @@
     "longDescription": "WireUp connects your own WhatsApp account to ChatGPT, so you can ask about your chats in plain words.\n\n- Catch up: \"What did I miss today?\" gives you every unread chat, summed up, with what needs a reply first.\n- Search: find the address, date, link or decision someone sent, by person, chat, words or dates.\n- Media: look at a photo, read a PDF someone shared, or transcribe a voice note.\n- Groups: see what a group decided, who voted for what in a poll, and who is coming to an event.\n- Replies: ask for a reply in your own voice. By default it only makes a draft, and nothing is sent until you approve it. You can also edit or delete your own messages, react, forward, and archive, pin or mute chats, always on request.\n\nWho it is for: anyone with WhatsApp on their phone who wants help keeping up with busy chats.\n\nSetup: sign in at wireup.chat with Google and scan a QR code with WhatsApp on your phone, the same way WhatsApp Web links. Then connect WireUp here.\n\nLimits: it works with chats on your own account only, sends only into chats that already exist, has a daily sending limit, and can have sending switched off. Your phone needs to be online now and then for new messages to arrive. Videos are described, not played.\n\nYour chats are kept in storage of your own, encrypted at rest, that no other account can reach. Reading leaves your phone as it was: chats stay unread until you open them or ask for them to be marked read. You can unlink or delete everything from the dashboard at any time.\n\nWireUp is made by Eitza Tech. It is not made, approved or supported by WhatsApp or Meta.",
     "developerName": "Eitza Tech",
     "category": "Productivity",
-    "capabilities": ["Read", "Write"],
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
     "websiteURL": "https://wireup.chat",
     "supportURL": "https://wireup.chat/#faq",
     "privacyPolicyURL": "https://wireup.chat/privacy",
