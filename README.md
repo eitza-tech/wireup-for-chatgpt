@@ -75,7 +75,7 @@ If you don't see **Add custom MCP server**, turn on Developer mode first: **Sett
 
 **Where are my messages kept?** In a storage space that belongs to your account alone, so ChatGPT can catch you up and search even when your phone is slow to answer. You can keep only the last 30 days, six months or a year, and delete everything at any time from your dashboard. What ChatGPT reads is processed by OpenAI as part of your conversation. Details: [wireup.chat/privacy](https://wireup.chat/privacy).
 
-**Can I use it in other AI apps too?** Yes: Claude, Gemini, Grok, Perplexity, Cursor and any app that supports remote MCP connectors. See [wireup.chat/connect](https://wireup.chat/connect) and [WireUp for Claude](https://github.com/eitza-tech/wireup-for-claude).
+**Can I use it in other AI apps too?** Yes: Claude, Gemini, Grok, Perplexity, Cursor and any app that supports remote MCP connectors. See [wireup.chat/connect](https://wireup.chat/connect) and [WireUp on GitHub](https://github.com/eitza-tech/wireup).
 
 ## Troubleshooting
 
